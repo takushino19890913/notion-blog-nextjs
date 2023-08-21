@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/*
+Selectionで選択したテキストのバックグラウンド、色を指定できる。
+*/
+
+::selection {
+  background-color: black;
+  color:#fff
+}
+
+/*
+*/
 .code-block-wrapper>pre{
     margin:0px !important;
 }
@@ -121,4 +133,531 @@ animation-delay:0.6s;
   @keyframes blink {
     50% { border-color: transparent; }
   }
+
+  /* スクロールボタン　矢印の大きさを設定　*/
+@media only screen and (max-width: 639px) {
+  .scroll-anim > a::before {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+@media only screen and (min-width: 640px) {
+  .scroll-anim > a::before {
+    width: 5px;
+    height: 5px;
+  }
+}
+
+.scroll-anim {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  text-align: center;
+}
+.scroll-anim > a {
+  position: relative;
+  display: inline-block;
+  font-weight: bold;
+  color: #002066;
+  text-decoration: none;
+  padding: 0 0 50px;
+}
+
+.scroll-anim > a:hover {
+  color: #002066;
+}
+
+.scroll-anim > a:hover::after {
+  content: '';
+    /*絶対配置で波形の位置を決める*/
+    position: absolute;
+    left:-12px;
+    top:-12px;
+    /*波形の形状*/
+    border: 1px solid #002066;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    /*はじめは不透明*/
+	  opacity:1;
+    /*アニメーションの設定*/
+    animation:1s circleanime2 forwards;
+}
+
+/*波形が広がるアニメーション*/
+@keyframes circleanime2{
+	0%{
+	  transform: scale(0);
+	}
+	100%{
+		transform:scale(2);
+		opacity: 0;
+	}
+}
+
+
+.scroll-white > a {
+  color: #fff;
+  text-shadow: 0.375px 0.375px 0.25px #aaa, -0.375px 0.375px 0.25px #aaa,
+    0.375px -0.375px 0.25px #aaa, -0.375px -0.375px 0.25px #aaa,
+    0.375px 0px 0.25px #aaa, 0px 0.375px 0.25px #aaa, -0.375px 0px 0.25px #aaa,
+    0px -0.375px 0.25px #aaa;
+}
+
+.scroll-white > a:hover {
+  color: #eee;
+}
+/*矢印を作成する*/
+.scroll-anim > a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 40px;
+  margin: auto;
+  transform: rotate(45deg);
+  animation: move 2s infinite;
+}
+.scroll-white > a::before {
+  border-bottom:2px solid #fff;
+  border-right: 2px solid #fff;
+}
+.scroll-green > a::before {
+  border-bottom: 2px solid #002066;
+  border-right: 2px solid #002066;
+}
   
+
+
+@keyframes move {
+  0% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+  20% {
+    transform: rotate(45deg) translate(10px, 10px);
+  }
+  40% {
+    transform: rotate(45deg) translate(0, 0);
+  }
+}
+
+/* emerge animation in screen */
+
+.isInScreen {
+  animation: emerge 8s linear forwards;
+}
+
+@keyframes emerge {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+/**
+画像を光らせるエフェクト
+*/
+/* .reflection{
+  display:inline-block;
+  position:relative;
+  overflow:hidden;
+  }
+   
+  .reflection:after {
+  content:"";
+  height:100%;
+  width:30px;
+  position:absolute;
+  top:-180px;
+  left:0;
+  background-color: #FCF2DC;
+  opacity:0;
+  -webkit-transform: rotate(45deg);
+  -webkit-animation: reflection 10s ease-in-out infinite;
+  }
+   
+  @keyframes reflection {
+  0% { -webkit-transform: scale(0) rotate(45deg); opacity: 0; }
+  75% { -webkit-transform: scale(0) rotate(45deg); opacity: 0.5; }
+  81% { -webkit-transform: scale(4) rotate(45deg); opacity: 1; }
+  100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
+  } */
+
+  /* #navMenuBtn {
+    animation: translateLeft 4s linear infinite;
+  }
+  
+  @keyframes translateLeft {
+    0%, 12.5%, 25%, 100% { transform: translateX(0); }
+    6.125%, 18.875% { transform: translateX(-11px); }
+  }
+  
+
+#navMenuBtn:hover {
+  /* ここに、オレンジがはみ出してくる処理を書きたい。
+} */
+
+/* ハンバーガーメニューのアニメーション　*/
+/*ボタン外側※レイアウトによってpositionや形状は適宜変更してください*/
+.openbtn1{
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  background: #002066;
+  cursor: pointer;
+  width: 80px; /*ボタンの大きさを大きくするためにwidthとheightを増やす*/
+  height: 80px; /*ボタンの大きさを大きくするためにwidthとheightを増やす*/
+  border-radius: 50%; /*ボタンを円にするためにborder-radiusを50%にする*/
+  transition: transform .2s;
+}
+
+.openbtn1:hover {
+  transform: scale(1.1); /* ホバー時に少し拡大 */
+}
+
+/*ボタン内側*/
+.openbtn1 span{
+  display: inline-block;
+  transition: all 1s; /*アニメーションの設定*/
+  position: absolute;
+  left: 28px; /*ボタンの大きさを大きくしたために、位置を調整*/
+  height: 3px;
+  border-radius: 2px;
+  z-index: 100;
+  background: #FCF2DC;
+  width: 30%; /*線の長さを調整*/
+}
+
+.openbtn1 span:nth-of-type(1) {
+  z-index: 100;
+  top: 33px; /*ボタンの大きさを大きくしたために、位置を調整*/
+}
+
+.openbtn1 span:nth-of-type(2) {
+  z-index: 100;
+  top: 39px; /*ボタンの大きさを大きくしたために、位置を調整*/
+}
+
+.openbtn1 span:nth-of-type(3) {
+  z-index: 100;
+  top: 45px; /*ボタンの大きさを大きくしたために、位置を調整*/
+}
+
+/*activeクラスが付与されると線が回転して×に*/
+
+.openbtn1.active span:nth-of-type(1) {
+  z-index: 100;
+  top: 32px; /*ボタンの大きさを大きくしたために、位置を調整*/
+  left: 28px; /*ボタンの大きさを大きくしたために、位置を調整*/
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2) {
+  z-index: 100;
+  opacity: 0; /*真ん中の線は透過*/
+}
+
+.openbtn1.active span:nth-of-type(3){
+  z-index: 100;
+  top: 44px; /*ボタンの大きさを大きくしたために、位置を調整*/
+  left: 28px; /*ボタンの大きさを大きくしたために、位置を調整*/
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+
+/* waveアニメーションの定義 */
+.wave-transform-enter {
+  animation: wave-transit-enter 1s 1;
+}
+
+.wave-transform-enter-done {
+  opacity:0;
+}
+@keyframes wave-transit-enter {
+  0% {
+    transform:translateY(0) scale(1, -1.4);
+  }
+  99%{
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(calc(180vh)) scale(1, -5);
+    opacity: 0;
+  }
+}
+
+
+.wave-transform-exit {
+  opacity: 1;
+  animation: wave-transit-exit 1s 1;
+}
+
+.wave-transform-exit-done {
+ opacity:0;
+}
+
+@keyframes wave-transit-exit {
+  0% {
+    transform: translateY(calc(180vh)) scale(1, -5);
+  }
+  99%{
+    opacity: 1;
+  }
+  100%{
+    transform:translateY(-50) scale(1, 0);
+    opacity: 0;
+  }
+}
+
+/* waveアニメーションの定義 */
+.wave-transform-reverse-enter {
+  animation: wave-transit-reverse-enter 1s 1;
+}
+
+.wave-transform-reverse-enter-done {
+  opacity:0;
+}
+@keyframes wave-transit-reverse-enter {
+  0% {
+    transform:translateY(-100) scale(1, 1.4);
+  }
+  99%{
+    opacity: 1;
+  }
+  100%{
+    transform: translateY(calc(120vh)) scale(1, 4);
+    opacity:0;
+  }
+}
+
+
+.wave-transform-reverse-exit {
+  opacity: 1;
+  animation: wave-transit-reverse-exit 1s 1;
+}
+
+.wave-transform-reverse-exit-done {
+ opacity:0;
+}
+
+@keyframes wave-transit-reverse-exit {
+  0% {
+    transform: translateY(calc(120vh)) scale(1, 4);
+  }
+  99%{
+    opacity: 1;
+  }
+  100%{
+    transform:translateY(-100) scale(1, 0);
+    opacity:0;
+  }
+}
+
+
+/*menu transform*/
+
+.menu-transform-enter {
+  animation: menu-transit-enter 1s 1;
+}
+
+@keyframes menu-transit-enter {
+  0% {
+    transform:translateY(calc(-100vh));
+  }
+  80%{
+    transform: translateY(calc(-5vh));
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+
+.menu-transform-exit {
+  opacity: 1;
+  animation: menu-transit-exit 1s 1;
+}
+
+.menu-transform-exit-done {
+ opacity:0;
+}
+
+@keyframes menu-transit-exit {
+  0% {
+    transform: translateY(0);
+  }
+  20%{
+    transform: translateY(calc(-5vh));
+  }
+  100%{
+    transform:translateY(calc(-100vh))
+  }
+}
+
+.wave-hovering-enter {
+  animation: wave-hovering-enter 2s 1;
+}
+
+@keyframes wave-hovering-enter{
+  0%{
+    transform:translateY(calc(-15vh)) scale(1, 0);
+  }
+  100%{
+    transform:translateY(0) scale(1, -1.4);
+  }
+}
+
+.wave-hovering-exit {
+  animation: wave-hovering-exit 2s 1;
+}
+
+.wave-hovering-exit-done {
+  opacity:0;
+}
+
+@keyframes wave-hovering-exit{
+  0%{
+    transform:translateY(0) scale(1,-1.4);
+  }
+  100%{
+    transform:translateY(calc(-15vh)) scale(1,0);
+  }
+}
+
+.main-transit {
+  animation: main-transit 1s 1;
+  opacity: 0;
+}
+
+@keyframes main-transit{
+  0%{
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.main-transit-done{
+  animation: main-transit-done 1s 1;
+  opacity: 1;
+}
+
+@keyframes main-transit-done{
+  0%{
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*After loading anim*/
+
+.wave-transform-after-loading-enter {
+  opacity: 1;
+  animation: wave-transit-exit 1s 1;
+}
+
+.wave-transform-after-loading-enter-done {
+ opacity:0;
+}
+
+
+.wave-transform-reverse-after-loading-enter {
+  opacity: 1;
+  animation: wave-transit-reverse-exit  1s 1;
+}
+
+.wave-transform-reverse-after-loading-enter-done {
+ opacity:0;
+}
+
+.loading-end{
+  opacity:1;
+}
+
+.loading-end-exit{
+  opacity: 1;
+  animation: loading-transparent 1s 1;
+}
+.loading-end-exit-done{
+  opacity: 0;
+}
+
+@keyframes loading-transparent{
+  0%{
+    opacity:1;
+  }
+  20%{
+    opacity:0;
+  }
+  100%{
+    opacity:0;
+  }
+}
+
+
+/*縦書き設定*/
+.vertical-rl-all {
+  writing-mode: vertical-rl;
+}
+
+.direction-rtl-all {
+  direction: rtl;
+}
+
+.text-upright-all {
+  text-orientation: upright;
+}
+
+/*ハイライト設定*/
+.highlighter-orange{
+  background: linear-gradient(transparent 10%, #FF9100 10% 90%, transparent 90%);
+}
+/*ハイライト設定*/
+.highlighter-black{
+  background: linear-gradient(transparent 10%, #000000 10% 90%, transparent 90%);
+}
+
+/*TextのOverflow設定*/
+.overflow-ellipsis {
+  position: relative;
+  overflow: hidden;
+}
+
+.overflow-ellipsis::after {
+  content: "...";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-left: 10px;
+  background: white; /* 背景色をpタグの背景色に合わせる */
+  pointer-events: none; /* マウスイベントを無効にする */
+}
+
+/**
+* TextMultilineOverflow.tsxのCSS
+*/
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

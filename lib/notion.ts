@@ -11,6 +11,38 @@ export const getDatabase = async (databaseId) => {
   return response.results;
 };
 
+export const getDatabaseForMonth = async(databaseId, year_month) => {
+  console.log(`${year_month.slice(0,4)}-${year_month.slice(4)}-01`);
+  const on_or_after:string = year_month.slice(4) == "12" ? `${parseInt(year_month.slice(0,4)) + 1}-${year_month.slice(4)}-01` : `${year_month.slice(0,4)}-${'0' + (parseInt(year_month.slice(4))+1).toString().slice(-2)}-01`
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    sorts: [
+      {
+          timestamp : "last_edited_time",
+          direction: "descending"
+      }
+    ],
+    filter: {
+      "and": [
+          {
+            timestamp:"last_edited_time",
+            "last_edited_time":{
+              "on_or_after": `${year_month.slice(0,4)}-${year_month.slice(4)}-01`,
+            }
+          },
+          {
+            "property":"Published",
+      "checkbox" : {
+        "equals": true
+          }
+        }
+      ]
+    },
+    
+  }) 
+  console.log(response);
+  return response.results;
+}
 
 export const getDatabaseWithTimeStamp = async (databaseId, tag?) => {
   const response = tag ? 

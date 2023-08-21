@@ -5,10 +5,12 @@ import { Text } from "../[id]";
 import styles from "./index.module.css";
 import Layout from "../../../components/Layout";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { SearchSelect } from "../../../components/SearchSelect";
+import { Page } from "../../../types/notion-blog-type";
 
 export const databaseId = process.env.NOTION_DATABASE_ID;
 
-export default function Blog({ posts, tags, currentTag }) {
+export default function Blog({ posts, tags, currentTag, year_month_list, tag_list }) {
   return (
     <div>
       <Head>
@@ -16,7 +18,17 @@ export default function Blog({ posts, tags, currentTag }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Layout>
-      <main className="w-1/2 mt-20 mx-auto">
+      <main className="mt-20 mx-auto flex flex-row">
+      <div className="ml-40 w-1/6">
+          <h2 className="text-3xl pb-5 border-b-2 border-dotted border-black">Filter</h2>
+          <div className="my-10">
+          <SearchSelect name="monthSelect"  labelTitle="月を選択" optionList={year_month_list} selected="" pathname="/blog"/>
+          </div>
+          <div>
+          <SearchSelect name="tagSelect"  labelTitle="タグを選択" optionList={tag_list} selected={currentTag} pathname="/blog"/>
+          </div>
+        </div>
+        <div className="mr-40 ml-auto w-1/2">
         <h2 className="text-3xl pb-5 border-b-2 border-dotted border-black">#{currentTag}</h2>
         <ol className="mt-5">
           {posts.map((post) => {
@@ -54,6 +66,8 @@ export default function Blog({ posts, tags, currentTag }) {
             );
           })}
         </ol>
+        </div>
+        
       </main>
       </Layout>
     </div>
@@ -83,22 +97,54 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
     const { tag } = context.params;
-    const database = await getDatabaseWithTimeStamp(databaseId, tag);
+    const database: Page[] = await getDatabaseWithTimeStamp(databaseId, tag) as unknown as Page[];;
     const uniqueTags = new Set<{id:string, name:string, color:string}>();
-    database.map((post:PageObjectResponse) => {
+    database.map((post:Page) => {
         const tagsProp = post.properties.Tag as { id: string, type: string, multi_select: Array<{id:string, name:string, color:string}> };
         const tags = tagsProp.multi_select;
         tags.map(tag => {
           uniqueTags.add(tag);
         });
     })
+    const databaseAll : Page[] = await getDatabaseWithTimeStamp(databaseId) as unknown as Page[];
+  let year_month_list: { [yyyymm: string]: Page[] } = {}
+  // 記事のtagを取得、数を取得してリストにする。tag:article数のobject
+  //{tag1:4, tag2:8,.....}
+  let tag_list: { [tag: string]: Page[] } = {}
+  await Promise.all(
+    databaseAll.map(async (item) => {
+      let date = new Date(item.last_edited_time)
+      let yyyymm =
+        date.getFullYear().toString() +
+        '/' +
+        ('00' + (date.getMonth() + 1).toString()).slice(-2)
+      if (year_month_list[yyyymm]) {
+        year_month_list[yyyymm].push(item)
+      } else {
+        year_month_list[yyyymm] = new Array(
+          item
+        )
+      }
+      await Promise.all(
+        item.properties.Tag.multi_select.map((tag) => {
+          if (tag_list[tag.name]) {
+            tag_list[tag.name].push(item)
+          } else {
+            tag_list[tag.name] = new Array(item)
+          }
+        })
+      )
+    })
+  )
 
   
     return {
       props: {
         posts: database,
         tags:Array.from(uniqueTags),
-        currentTag:tag
+        currentTag:tag,
+        year_month_list,
+        tag_list,
       },
       revalidate: 1,
     };

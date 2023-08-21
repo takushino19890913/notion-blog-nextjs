@@ -2,10 +2,13 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { Group, Object3D } from 'three';
+import { Euler, Group, Object3D } from 'three';
 import { PerspectiveCamera } from 'three';
 import { PlaneGeometry, Mesh, ShadowMaterial, Vector3} from 'three';
 import { ReactNode, forwardRef, MutableRefObject  } from 'react';
+import { useLoader } from '@react-three/fiber';
+import { MathUtils } from 'three';
+import { Quaternion } from 'three';
 
 
 const CustomCamera: React.FC = () => {
@@ -25,7 +28,7 @@ const CustomCamera: React.FC = () => {
   });
 
   return (
-    <perspectiveCamera ref={ref} position={[0, 0, 8]} />
+    <perspectiveCamera ref={ref} position={[0, 0, 7]} />
   );
 };
 
@@ -41,24 +44,81 @@ const Ground = () => {
   );
 };
 
-const Model: React.FC = () => {
-  const [gltf, setGLTF] = useState<{ scene: Object3D } | null>(null);
-  const groupRef = useRef<Group>();
 
- useEffect(() => {
-  new GLTFLoader().load('/3dmodel/diamond_in_the_rough_perfect.glb', (loadedGLTF) => {
-    loadedGLTF.scene.traverse((child) => {
-      if ((child as Mesh).isMesh) {
-        child.castShadow = true;
-        child.receiveShadow = true;
-      }
-    });
-    setGLTF(loadedGLTF);
+const Model: React.FC = () => {
+  // Define refs for position
+  const origin = useRef(new Vector3(0, 0, 0));
+  const direction = useRef(new Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5));
+  const speed = useRef(new Vector3(0, 0, 0));
+  const [transitioning, setTransitioning] = useState(false);
+  const targetQuaternion = useRef<Quaternion>(new Quaternion());
+
+  // Define refs for rotation
+  const originRotation = useRef(new Quaternion());
+const rotationDirection = useRef(new Quaternion(0, Math.random() * 2 - 1, 0, 1).normalize());
+const rotationSpeed = useRef(new Quaternion());
+  const damping = 0.9;
+  const rotationDamping = 0.2;
+
+  const groupRef = useRef<Group>();
+  const gltf = useLoader(GLTFLoader, '/3dmodel/diamond_in_the_rough_perfect.glb');
+
+  gltf.scene.traverse((child) => {
+    if ((child as Mesh).isMesh) {
+      child.castShadow = true;
+      child.receiveShadow = true;
+    }
   });
-}, []);
+
+  useEffect(() => {
+    if (groupRef.current) {
+      origin.current.copy(groupRef.current.position);
+      originRotation.current.copy(groupRef.current.quaternion);
+    }
+  }, [groupRef.current]);
+
+  useFrame((state, delta) => {
+    if (groupRef.current) {
+      const limitedDelta = Math.min(delta, 1 / 60);
+  
+      // Apply motion
+      speed.current.add(direction.current.clone().multiplyScalar(limitedDelta * 0.013));
+      const displacement = new Vector3().subVectors(origin.current, groupRef.current.position);
+      speed.current.add(displacement.multiplyScalar(limitedDelta * 0.2));
+      speed.current.multiplyScalar(damping);
+      groupRef.current.position.add(speed.current);
+  
+      // Apply rotation
+      if (!transitioning) {
+        setTransitioning(true);
+        const angle = Math.random() * Math.PI / 3 - Math.PI / 6;  // change Angle range
+        rotationDirection.current.setFromAxisAngle(new Vector3(0, 1, 0), angle);
+        rotationDirection.current.multiply(originRotation.current);
+      }
+  
+      groupRef.current.quaternion.slerp(rotationDirection.current, limitedDelta * rotationDamping);
+  
+      if (groupRef.current.quaternion.angleTo(rotationDirection.current) < 0.01) {
+        setTransitioning(false);
+        rotationDirection.current.copy(groupRef.current.quaternion);
+      }
+  
+      // Randomly change direction
+      if (MathUtils.randInt(0, 100) > 98) {
+        direction.current.copy(new Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5));
+      }
+    }
+  });
+  
+
 
   return gltf ? <primitive ref={groupRef} object={gltf.scene} /> : null;
 };
+
+
+
+
+
 
 const CameraAdjuster: React.FC = () => {
   const { camera, size } = useThree();
@@ -79,8 +139,8 @@ const ThreeDModel: React.FC = () => {
       <Canvas shadows>
         <CustomCamera />
         <CameraAdjuster />
-          <ambientLight position={[1,1,0]}/>
-          <spotLight angle={1.5} position={[0, 10, -1]} castShadow />
+          <ambientLight position={[2,2,0]}/>
+          <spotLight angle={1.74} position={[0, 13, -1]} castShadow />
           <Model />
           <Ground />
       </Canvas>
