@@ -31,7 +31,6 @@ const Layout: React.FC<Props> = ({ children }) => {
   const [showWave, setShowWave] = useState(false);
   const [hovering, setHovering] = useState(false);
   const [isTransitioning, setIsTransitioning] = useState(false);
-
 useEffect(() => {
     console.log("istransitioning: ", isTransitioning)
 }, [hovering, menuOpen, transit, isTransitioning]);
@@ -286,13 +285,14 @@ useEffect(() => {
  )}
  </CSSTransition>
 
-      </nav>
+  </nav>
       
       <FullPageLoader isLoading={isLoading} setIsLoading={setIsLoading} waveTransit={waveTransit} setWaveTransit={setWaveTransit} isTransitioning={isTransitioning}>
-        <div className="mx-auto mt-[20vh] snap-y snap-mandatory overflow-y-auto" id="snapContainer"
+        <div className="mx-auto mt-[20vh] snap-y overflow-y-auto" id="snapContainer"
           style={{ maxHeight: height * 80 / 100 }}
         >
           <main className={transit ? "mx-auto main-transit": "mx-auto main-transit-done"}>{children}</main>
+          <footer className='min-h-[80vh] snap-start relative w-full mx-auto pt-[5vh]'></footer>
         </div>
       </FullPageLoader>
     </div>

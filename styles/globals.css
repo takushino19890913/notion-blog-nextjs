@@ -615,14 +615,32 @@ animation-delay:0.6s;
 .text-upright-all {
   text-orientation: upright;
 }
-
-/*ハイライト設定*/
-.highlighter-orange{
-  background: linear-gradient(transparent 10%, #FF9100 10% 90%, transparent 90%);
+/* アニメーションキーフレームの定義 */
+@keyframes drawOrangeHighlight {
+  0% {
+    background: linear-gradient(to right, transparent 0%, transparent 10%, #FF9100 10% 10%, transparent 90%, transparent 100%);
+  }
+  100% {
+    background: linear-gradient(to right, transparent 0%, transparent 10%, #FF9100 10% 90%, transparent 90%, transparent 100%);
+  }
 }
-/*ハイライト設定*/
-.highlighter-black{
-  background: linear-gradient(transparent 10%, #000000 10% 90%, transparent 90%);
+
+@keyframes drawBlackHighlight {
+  0% {
+    background: linear-gradient(to right, transparent 0%, transparent 10%, #000000 10% 10%, transparent 90%, transparent 100%);
+  }
+  100% {
+    background: linear-gradient(to right, transparent 0%, transparent 10%, #000000 10% 90%, transparent 90%, transparent 100%);
+  }
+}
+
+/* ハイライト設定 */
+.highlighter-orange {
+  animation: drawOrangeHighlight 1s forwards; /* アニメーションの適用 */
+}
+
+.highlighter-black {
+  animation: drawBlackHighlight 1s forwards; /* アニメーションの適用 */
 }
 
 /*TextのOverflow設定*/
