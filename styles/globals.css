@@ -615,32 +615,75 @@ animation-delay:0.6s;
 .text-upright-all {
   text-orientation: upright;
 }
-/* アニメーションキーフレームの定義 */
-@keyframes drawOrangeHighlight {
-  0% {
-    background: linear-gradient(to right, transparent 0%, transparent 10%, #FF9100 10% 10%, transparent 90%, transparent 100%);
-  }
-  100% {
-    background: linear-gradient(to right, transparent 0%, transparent 10%, #FF9100 10% 90%, transparent 90%, transparent 100%);
-  }
-}
-
-@keyframes drawBlackHighlight {
-  0% {
-    background: linear-gradient(to right, transparent 0%, transparent 10%, #000000 10% 10%, transparent 90%, transparent 100%);
-  }
-  100% {
-    background: linear-gradient(to right, transparent 0%, transparent 10%, #000000 10% 90%, transparent 90%, transparent 100%);
-  }
-}
 
 /* ハイライト設定 */
-.highlighter-orange {
-  animation: drawOrangeHighlight 1s forwards; /* アニメーションの適用 */
+.highlighter-black {
+  position: relative;
+  color: #000000;  /* Original text color (Black) */
 }
 
-.highlighter-black {
-  animation: drawBlackHighlight 1s forwards; /* アニメーションの適用 */
+.highlighter-orange span {
+  position: relative;
+  z-index: 3;
+}
+
+.highlighter-black::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  content: attr(data-txt);
+  color: #FFFFFF;  /* Highlighted text color (White) */
+  z-index: 2;
+  clip-path: inset(0 100% 0 0);  /* Adjusted clipping */
+  animation: textHighlight 0.5s forwards,drawHighlight 0.5s forwards;
+  background-color: #000000; /* Background color */
+}
+
+
+
+@keyframes textHighlight {
+  0% {
+      clip-path: inset(0 100% 0 0);
+  }
+  100% {
+      clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes drawHighlight {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+
+.highlighter-orange {
+  position: relative;
+  overflow: hidden;
+  z-index:2;
+}
+.highlighter-orange span {
+  position: relative;
+  z-index: 3;
+}
+
+.highlighter-orange::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  z-index: 1;
+  background: #FF9100;
+  animation: drawHighlight 0.5s forwards;
 }
 
 /*TextのOverflow設定*/

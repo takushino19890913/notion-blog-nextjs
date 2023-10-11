@@ -96,10 +96,20 @@ export default function Home() {
               <div className="flex-col flex w-1/2">
                 <p className="w-full">SITE DESIGN / GRAPHIC DESIGN / CODING - HTML, CSS, JAVASCRIPT, PHP, PYTHON / LIBRARIES AND FRAMEWORKS - REACT, REACT NATIVE, NEXTJS, WORDPRESS / CONSULTING</p>
                 <h2 className="text-6xl font-bold mt-[15vh]"> 
-                  <span ref={refOrange} className={isInViewOrange ? "highlighter-orange" : ""}>WEB DESIGN</span>
+                  <span ref={refOrange} className={isInViewOrange ? "highlighter-orange inline-block" : "inline-block"}>
+                    <span>WEB DESIGN</span>
+                    </span>
                 </h2>
+                {/* <h2 className="text text-6xl font-bold mt-5">
+                <span ref={refBlack} className={isInViewBlack ? "highlighter-black" : ""}>
+                  <span className="text-original">CODING</span>
+                  <span className="text-clone">CODING</span>
+                </span>
+                </h2> */}
                 <h2 className="text-6xl font-bold mt-5">
-                  <span ref={refBlack} className={isInViewBlack ? "highlighter-black text-white" : ""}>CODING</span>
+                <span className={isInViewBlack ? "inline-block highlighter-black": "inline-block"} ref={refBlack} data-txt="CODING">
+                CODING
+              </span>
                 </h2>
               </div>
               <div className="absolute right-[10vh] top-[12vh] w-1/3 max-h-[80vh] overflow-hidden text-ellipsis whitespace-nowrap">
