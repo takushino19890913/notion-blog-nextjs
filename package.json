@@ -8,10 +8,10 @@
     "start": "next start"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.1",
+    "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.0",
-    "@mui/icons-material": "^5.14.0",
-    "@mui/material": "^5.13.5",
+    "@mui/icons-material": "^5.15.14",
+    "@mui/material": "^5.15.14",
     "@mui/styles": "^5.13.2",
     "@notionhq/client": "^2.2.3",
     "@react-three/drei": "^9.66.1",
@@ -29,8 +29,8 @@
     "react": "^18.2.0",
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "^18.2.0",
-    "react-particles": "^2.11.0",
     "react-scripts": "^5.0.1",
+    "react-swipeable": "^7.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "react-transition-group": "^4.4.5",
     "react-tsparticles": "1.40.2",

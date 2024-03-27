@@ -26,7 +26,7 @@ export const ScrollDown: FC<Props> = ({ animStatus, cursor, scrollClass }) => {
     snapContainer.classList.remove('snap-y', 'snap-mandatory')
     const scrollInterval = setInterval(() => {
       if (i < 50) {
-        snapContainer.scrollBy(0, (height * 85 / 100) / 50)
+        snapContainer.scrollBy(0, (height * 85) / 100 / 50)
         i++
       } else {
         clearInterval(scrollInterval)
@@ -36,8 +36,10 @@ export const ScrollDown: FC<Props> = ({ animStatus, cursor, scrollClass }) => {
   }
 
   return (
-    <p className={`opacity-0 z-20 ${animStatus} ${scrollClass}`}>
-      <a className={cursor + " text-sm italic"} onClick={scroll}>
+    <p
+      className={`opacity-0 z-20 ${animStatus} ${scrollClass} hidden md:block `}
+    >
+      <a className={cursor + ' text-sm italic'} onClick={scroll}>
         Scroll
       </a>
     </p>

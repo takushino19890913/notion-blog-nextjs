@@ -1,65 +1,97 @@
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import useWindowDimensions from '../hooks/Dimension';
+import React, { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import useWindowDimensions from '../hooks/Dimension'
 
 // 画像の型定義
 interface CarouselProps {
-  images: { src: string, href: string }[];
+  images: { src: string; href: string }[]
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
   // 現在表示している画像のインデックス
-  const [current, setCurrent] = useState(0);
-  const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(0);
+  const [current, setCurrent] = useState(0)
+  const [width, setWidth] = useState(0)
+  const [height, setHeight] = useState(0)
   // トランジション中かどうかのステート
-  const [transitioning, setTransitioning] = useState(false);
+  const [transitioning, setTransitioning] = useState(false)
 
   if (typeof window !== 'undefined') {
-    let { h, w } = useWindowDimensions();
+    let { h, w } = useWindowDimensions()
     useEffect(() => {
-      setHeight(h);
-      setWidth(w);
-    }, [w, h]);
+      setHeight(h)
+      setWidth(w)
+    }, [w, h])
   }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setTransitioning(true);
-    }, 4000);
+      setTransitioning(true)
+    }, 4000)
 
-    return () => clearInterval(interval);
-  }, [images]);
+    return () => clearInterval(interval)
+  }, [images])
 
   // 現在、次、次の次、そして次の次の次の画像を取得するヘルパー関数
   const getImagesToShow = () => {
-    const indices = Array.from({ length: 4 }, (_, i) => (current + i) % images.length);
-    return indices.map(index => images[index]);
-  };
+    const length = width <= 640 ? 2 : 4 // tailwind.cssのsmサイズ640px以下の場合は1つの画像のみ表示
+    const indices = Array.from(
+      { length },
+      (_, i) => (current + i) % images.length
+    )
+    return indices.map((index) => images[index])
+  }
 
   return (
     <div className="relative overflow-hidden">
       {/* 画像のトランジション */}
       <div
-        className={`flex ${transitioning ? 'transition-transform duration-500 ease-in-out' : 'transition-none'}`}
-        style={{ transform: transitioning ? `translateX(-${100 / 3}%)` : 'translateX(0)' }}
+        className={`flex ${
+          transitioning
+            ? 'transition-transform duration-500 ease-in-out'
+            : 'transition-none'
+        }`}
+        style={{
+          transform:
+            width <= 640
+              ? transitioning
+                ? `translateX(-100%)`
+                : 'translateX(0)'
+              : transitioning
+              ? `translateX(-${100 / 3}%)`
+              : 'translateX(0)',
+        }}
         onTransitionEnd={() => {
           if (transitioning) {
-            setTransitioning(false);
-            setCurrent(prev => (prev + 1) % images.length);
+            setTransitioning(false)
+            setCurrent((prev) => (prev + 1) % images.length)
           }
         }}
       >
         {/* 画像の表示 */}
         {getImagesToShow().map((image, index) => (
-          <Link className="flex-none w-1/3" key={index} href={image.href}>
-            <Image src={image.src} alt={`Slide ${index}`} width={2388} height={2710} className="border-2 border-[#cccccc] h-full mr-auto" style={{ objectFit: 'cover', objectPosition:'top left', width:width * 6 / 25  }} />
+          <Link
+            className="flex-none mt-10 md:mt-0 w-full md:w-1/3"
+            key={index}
+            href={image.href}
+          >
+            <Image
+              src={image.src}
+              alt={`Slide ${index}`}
+              width={2388}
+              height={2710}
+              className="border-2 border-[#cccccc] h-full md:mr-auto"
+              style={{
+                objectFit: 'cover',
+                objectPosition: 'top left',
+                width: width <= 640 ? '100%' : (width * 6) / 25,
+              }}
+            />
           </Link>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Carousel;
+export default Carousel

@@ -1,0 +1,61 @@
+{
+  "thoughts-in-the-rough": {
+    "title": "Thoughts in the Rough",
+    "technologies": ["NextJS", "TypeScript", "TailwindCSS", "Three.js"],
+    "pcScreenshots": [
+      "/images/thoughts_in_the_rough/portfolio/pc_top.png",
+      "/images/thoughts_in_the_rough/portfolio/pc_all.png"
+    ],
+    "mobileScreenshots": [
+      "/images/thoughts_in_the_rough/portfolio/TIR_mobile_top.png",
+      "/images/thoughts_in_the_rough/portfolio/TIR_mobile_2.png"
+    ],
+    "themeColor": "#002066",
+    "url": "https://example.com",
+    "role": "N/A",
+    "clientName": "N/A",
+    "description": "My portfolio website built with NextJS, TypeScript, TailwindCSS, and Three.js. <br> The website is designed to showcase my work and provide a unique experience for visitors.",
+    "ja_description": "NextJS、TypeScript、TailwindCSS、Three.jsを使用して構築されたポートフォリオウェブサイト。BlogはNotionと連携をしています。<br> このウェブサイトは私の作品を紹介したり、見てくださった方と交流することを目的としています。",
+    "logoImage": "/images/logo.png"
+  },
+  "jp-class": {
+    "title": "しずか先生のこども日本語教室",
+    "title_en": "Shizuka's Japanese Class",
+    "technologies": ["NextJS", "TypeScript", "TailwindCSS", "Three.js"],
+    "pcScreenshots": [
+      "/images/jp-class/portfolio/pc_top.png",
+      "/images/jp-class/portfolio/pc_all.png"
+    ],
+    "mobileScreenshots": [
+      "/images/jp-class/portfolio/jpClass_mobile_top.png",
+      "/images/jp-class/portfolio/jpClass_mobile_2.png"
+    ],
+    "themeColor": "#613091",
+    "url": "https://japanesevanclass.ca",
+    "role": "N/A",
+    "clientName": "N/A",
+    "description": "My portfolio website built with NextJS, TypeScript, TailwindCSS, and Three.js. <br> The website is designed to showcase my work and provide a unique experience for visitors.",
+    "ja_description": "NextJS、TypeScript、TailwindCSS、Three.jsを使用して構築されたポートフォリオウェブサイト。BlogはNotionと連携をしています。<br> このウェブサイトは私の作品を紹介したり、見てくださった方と交流することを目的としています。",
+    "logoImage": "/images/jp-class/portfolio/jpClass_logo.png"
+  },
+  "terakoya": {
+    "title": "寺子屋プリスクール",
+    "title_en": "Terakoya the Japanese Preschool",
+    "technologies": ["NextJS", "TypeScript", "TailwindCSS", "Contentful"],
+    "pcScreenshots": [
+      "/images/terakoya/portfolio/pc_top.png",
+      "/images/terakoya/portfolio/pc_all.png"
+    ],
+    "mobileScreenshots": [
+      "/images/terakoya/portfolio/terakoya_mobile_top.png",
+      "/images/terakoya/portfolio/terakoya_mobile_2.png"
+    ],
+    "themeColor": "#00A45D",
+    "url": "https://terakoya-vancouver.ca",
+    "role": "N/A",
+    "clientName": "N/A",
+    "description": "My portfolio website built with NextJS, TypeScript, TailwindCSS, and Three.js. <br> The website is designed to showcase my work and provide a unique experience for visitors.",
+    "ja_description": "NextJS、TypeScript、TailwindCSS、Three.jsを使用して構築されたポートフォリオウェブサイト。BlogはNotionと連携をしています。<br> このウェブサイトは私の作品を紹介したり、見てくださった方と交流することを目的としています。",
+    "logoImage": "/images/terakoya/portfolio/terakoya_logo.png"
+  }
+}

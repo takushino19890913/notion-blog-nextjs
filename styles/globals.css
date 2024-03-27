@@ -2,139 +2,202 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /*
 Selectionで選択したテキストのバックグラウンド、色を指定できる。
 */
 
 ::selection {
   background-color: black;
-  color:#fff
+  color: #fff;
 }
 
 /*
 */
-.code-block-wrapper>pre{
-    margin:0px !important;
+.code-block-wrapper > pre {
+  margin: 0px !important;
 }
 
-.link-card:hover{
-    background-color: #dddddd;
+.link-card:hover {
+  background-color: #dddddd;
 }
 
 /*Loading anim*/
-.animate-polishing {text-align:center;}
+.animate-polishing {
+  text-align: center;
+}
 
 .animate-polishing span {
-position:relative;
-color:#3A4A64;
-padding:0 0.2em;
-visibility:visible;
-opacity:0.5;
--webkit-animation:load 2s ease-in-out;
--moz-animation:load 2s ease-in-out;
--ms-animation:load 2s ease-in-out;
--o-animation:load 2s ease-in-out;
-animation:load 2s ease-in-out;
--webkit-animation-iteration-count:infinite;
--moz-animation-iteration-count:infinite;
--ms-animation-iteration-count:infinite;
--o-animation-iteration-count:infinite;
-animation-iteration-count:infinite;
+  position: relative;
+  color: #3a4a64;
+  padding: 0 0.2em;
+  visibility: visible;
+  opacity: 0.5;
+  -webkit-animation: load 2s ease-in-out;
+  -moz-animation: load 2s ease-in-out;
+  -ms-animation: load 2s ease-in-out;
+  -o-animation: load 2s ease-in-out;
+  animation: load 2s ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
 }
 .animate-polishing span:nth-of-type(1) {
--webkit-animation-delay:0s;
--moz-animation-delay:0s;
--ms-animation-delay:0s;
--o-animation-delay:0s;
-animation-delay:0s;
+  -webkit-animation-delay: 0s;
+  -moz-animation-delay: 0s;
+  -ms-animation-delay: 0s;
+  -o-animation-delay: 0s;
+  animation-delay: 0s;
 }
 .animate-polishing span:nth-of-type(2) {
--webkit-animation-delay:0.1s;
--moz-animation-delay:0.1s;
--ms-animation-delay:0.1s;
--o-animation-delay:0.1s;
-animation-delay:0.1s;
+  -webkit-animation-delay: 0.1s;
+  -moz-animation-delay: 0.1s;
+  -ms-animation-delay: 0.1s;
+  -o-animation-delay: 0.1s;
+  animation-delay: 0.1s;
 }
 .animate-polishing span:nth-of-type(3) {
--webkit-animation-delay:0.2s;
--moz-animation-delay:0.2s;
--ms-animation-delay:0.2s;
--o-animation-delay:0.2s;
-animation-delay:0.2s;
+  -webkit-animation-delay: 0.2s;
+  -moz-animation-delay: 0.2s;
+  -ms-animation-delay: 0.2s;
+  -o-animation-delay: 0.2s;
+  animation-delay: 0.2s;
 }
 .animate-polishing span:nth-of-type(4) {
--webkit-animation-delay:0.5s;
--moz-animation-delay:0.5s;
--ms-animation-delay:0.5s;
--o-animation-delay:0.5s;
-animation-delay:0.5s;
+  -webkit-animation-delay: 0.5s;
+  -moz-animation-delay: 0.5s;
+  -ms-animation-delay: 0.5s;
+  -o-animation-delay: 0.5s;
+  animation-delay: 0.5s;
 }
 .animate-polishing span:nth-of-type(5) {
--webkit-animation-delay:0.4s;
--moz-animation-delay:0.4s;
--ms-animation-delay:0.4s;
--o-animation-delay:0.4s;
-animation-delay:0.4s;
+  -webkit-animation-delay: 0.4s;
+  -moz-animation-delay: 0.4s;
+  -ms-animation-delay: 0.4s;
+  -o-animation-delay: 0.4s;
+  animation-delay: 0.4s;
 }
 .animate-polishing span:nth-of-type(6) {
--webkit-animation-delay:1s;
--moz-animation-delay:1s;
--ms-animation-delay:1s;
--o-animation-delay:1s;
-animation-delay:1s;
+  -webkit-animation-delay: 1s;
+  -moz-animation-delay: 1s;
+  -ms-animation-delay: 1s;
+  -o-animation-delay: 1s;
+  animation-delay: 1s;
 }
 .animate-polishing span:nth-of-type(7) {
--webkit-animation-delay:0.6s;
--moz-animation-delay:0.6s;
--ms-animation-delay:0.6s;
--o-animation-delay:0.6s;
-animation-delay:0.6s;
+  -webkit-animation-delay: 0.6s;
+  -moz-animation-delay: 0.6s;
+  -ms-animation-delay: 0.6s;
+  -o-animation-delay: 0.6s;
+  animation-delay: 0.6s;
 }
 
 @-webkit-keyframes load {
-0% {visibility:visible; opacity:0.5; text-shadow:none;}
-50% {visibility:visible; opacity:1; text-shadow:0 1px 8px #1cc, 0 -1px 8px #1cc;}
-100% {visibility:visible; opacity:0.5; text-shadow:none;}
+  0% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+    text-shadow: 0 1px 8px #1cc, 0 -1px 8px #1cc;
+  }
+  100% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
 }
 @-moz-keyframes load {
-0% {visibility:visible; opacity:0.5; text-shadow:none;}
-50% {visibility:visible; opacity:1; text-shadow:0 1px 8px #1cc, 0 -1px 8px #1cc;}
-100% {visibility:visible; opacity:0.5; text-shadow:none;}
+  0% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+    text-shadow: 0 1px 8px #1cc, 0 -1px 8px #1cc;
+  }
+  100% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
 }
 @-ms-keyframes load {
-0% {visibility:visible; opacity:0.5; text-shadow:none;}
-50% {visibility:visible; opacity:1; text-shadow:0 1px 8px #1cc, 0 -1px 8px #1cc;}
-100% {visibility:visible; opacity:0.5; text-shadow:none;}
+  0% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+    text-shadow: 0 1px 8px #1cc, 0 -1px 8px #1cc;
+  }
+  100% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
 }
 @-o-keyframes load {
-0% {visibility:visible; opacity:0.5; text-shadow:none;}
-50% {visibility:visible; opacity:1; text-shadow:0 1px 8px #1cc, 0 -1px 8px #1cc;}
-100% {visibility:visible; opacity:0.5; text-shadow:none;}
+  0% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+    text-shadow: 0 1px 8px #1cc, 0 -1px 8px #1cc;
+  }
+  100% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
 }
 @keyframes load {
-0% {visibility:visible; opacity:0.5; text-shadow:none;}
-50% {visibility:visible; opacity:1; text-shadow:0 1px 8px #1cc, 0 -1px 8px #1cc;}
-100% {visibility:visible; opacity:0.5; text-shadow:none;}
+  0% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
+  50% {
+    visibility: visible;
+    opacity: 1;
+    text-shadow: 0 1px 8px #1cc, 0 -1px 8px #1cc;
+  }
+  100% {
+    visibility: visible;
+    opacity: 0.5;
+    text-shadow: none;
+  }
 }
 
 /* タイプライターアニメーション */
 .typewriter {
-    border-right: 0.05em solid black;
-    padding-right: 0.2em;  /* Add this line */
-    white-space: nowrap;
-    overflow: hidden;
-  }
-  
-  .typewriterBlink {
-    animation: blink 1s steps(1) infinite;
-  }
-  
-  @keyframes blink {
-    50% { border-color: transparent; }
-  }
+  border-right: 0.05em solid black;
+  padding-right: 0.2em; /* Add this line */
+  white-space: nowrap;
+  overflow: hidden;
+}
 
-  /* スクロールボタン　矢印の大きさを設定　*/
+.typewriterBlink {
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+/* スクロールボタン　矢印の大きさを設定　*/
 @media only screen and (max-width: 639px) {
   .scroll-anim > a::before {
     width: 5px;
@@ -170,32 +233,31 @@ animation-delay:0.6s;
 
 .scroll-anim > a:hover::after {
   content: '';
-    /*絶対配置で波形の位置を決める*/
-    position: absolute;
-    left:-12px;
-    top:-12px;
-    /*波形の形状*/
-    border: 1px solid #002066;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    /*はじめは不透明*/
-	  opacity:1;
-    /*アニメーションの設定*/
-    animation:1s circleanime2 forwards;
+  /*絶対配置で波形の位置を決める*/
+  position: absolute;
+  left: -12px;
+  top: -12px;
+  /*波形の形状*/
+  border: 1px solid #002066;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  /*はじめは不透明*/
+  opacity: 1;
+  /*アニメーションの設定*/
+  animation: 1s circleanime2 forwards;
 }
 
 /*波形が広がるアニメーション*/
-@keyframes circleanime2{
-	0%{
-	  transform: scale(0);
-	}
-	100%{
-		transform:scale(2);
-		opacity: 0;
-	}
+@keyframes circleanime2 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
-
 
 .scroll-white > a {
   color: #fff;
@@ -220,15 +282,13 @@ animation-delay:0.6s;
   animation: move 2s infinite;
 }
 .scroll-white > a::before {
-  border-bottom:2px solid #fff;
+  border-bottom: 2px solid #fff;
   border-right: 2px solid #fff;
 }
 .scroll-green > a::before {
   border-bottom: 2px solid #002066;
   border-right: 2px solid #002066;
 }
-  
-
 
 @keyframes move {
   0% {
@@ -289,7 +349,7 @@ animation-delay:0.6s;
   100% { -webkit-transform: scale(50) rotate(45deg); opacity: 0; }
   } */
 
-  /* #navMenuBtn {
+/* #navMenuBtn {
     animation: translateLeft 4s linear infinite;
   }
   
@@ -305,22 +365,33 @@ animation-delay:0.6s;
 
 /* ハンバーガーメニューのアニメーション　*/
 /*ボタン外側※レイアウトによってpositionや形状は適宜変更してください*/
-.openbtn1{
+.openbtn1 {
   position: relative; /*ボタン内側の基点となるためrelativeを指定*/
   background: #002066;
   cursor: pointer;
   width: 80px; /*ボタンの大きさを大きくするためにwidthとheightを増やす*/
   height: 80px; /*ボタンの大きさを大きくするためにwidthとheightを増やす*/
   border-radius: 50%; /*ボタンを円にするためにborder-radiusを50%にする*/
-  transition: transform .2s;
+  transition: transform 0.2s;
 }
 
-.openbtn1:hover {
+.openbtn1_mobile {
+  position: relative; /*ボタン内側の基点となるためrelativeを指定*/
+  background: #002066;
+  cursor: pointer;
+  width: 60px; /*ボタンの大きさを大きくするためにwidthとheightを増やす*/
+  height: 60px; /*ボタンの大きさを大きくするためにwidthとheightを増やす*/
+  border-radius: 50%; /*ボタンを円にするためにborder-radiusを50%にする*/
+  transition: transform 0.2s;
+}
+
+.openbtn1:hover openbtn1_mobile:hover {
   transform: scale(1.1); /* ホバー時に少し拡大 */
 }
 
 /*ボタン内側*/
-.openbtn1 span{
+.openbtn1 span,
+.openbtn1_mobile span {
   display: inline-block;
   transition: all 1s; /*アニメーションの設定*/
   position: absolute;
@@ -328,8 +399,11 @@ animation-delay:0.6s;
   height: 3px;
   border-radius: 2px;
   z-index: 100;
-  background: #FCF2DC;
+  background: #fcf2dc;
   width: 30%; /*線の長さを調整*/
+}
+.openbtn1_mobile span {
+  left: 21px; /*モバイル用の位置を調整*/
 }
 
 .openbtn1 span:nth-of-type(1) {
@@ -347,6 +421,21 @@ animation-delay:0.6s;
   top: 45px; /*ボタンの大きさを大きくしたために、位置を調整*/
 }
 
+.openbtn1_mobile span:nth-of-type(1) {
+  z-index: 100;
+  top: 23px; /*モバイル用の位置を調整*/
+}
+
+.openbtn1_mobile span:nth-of-type(2) {
+  z-index: 100;
+  top: 29px; /*モバイル用の位置を調整*/
+}
+
+.openbtn1_mobile span:nth-of-type(3) {
+  z-index: 100;
+  top: 35px; /*モバイル用の位置を調整*/
+}
+
 /*activeクラスが付与されると線が回転して×に*/
 
 .openbtn1.active span:nth-of-type(1) {
@@ -357,15 +446,29 @@ animation-delay:0.6s;
   width: 30%;
 }
 
-.openbtn1.active span:nth-of-type(2) {
+.openbtn1_mobile.active span:nth-of-type(1) {
+  top: 22px; /*モバイル用の位置を調整*/
+  left: 21px; /*モバイル用の位置を調整*/
+  transform: translateY(6px) rotate(-45deg);
+  width: 30%;
+}
+
+.openbtn1.active span:nth-of-type(2),
+.openbtn1_mobile.active span:nth-of-type(2) {
   z-index: 100;
   opacity: 0; /*真ん中の線は透過*/
 }
 
-.openbtn1.active span:nth-of-type(3){
+.openbtn1.active span:nth-of-type(3) {
   z-index: 100;
   top: 44px; /*ボタンの大きさを大きくしたために、位置を調整*/
   left: 28px; /*ボタンの大きさを大きくしたために、位置を調整*/
+  transform: translateY(-6px) rotate(45deg);
+  width: 30%;
+}
+.openbtn1_mobile.active span:nth-of-type(3) {
+  top: 34px; /*モバイル用の位置を調整*/
+  left: 21px; /*モバイル用の位置を調整*/
   transform: translateY(-6px) rotate(45deg);
   width: 30%;
 }
@@ -376,21 +479,20 @@ animation-delay:0.6s;
 }
 
 .wave-transform-enter-done {
-  opacity:0;
+  opacity: 0;
 }
 @keyframes wave-transit-enter {
   0% {
-    transform:translateY(0) scale(1, -1.4);
+    transform: translateY(0) scale(1, -1.4);
   }
-  99%{
+  99% {
     opacity: 1;
   }
-  100%{
+  100% {
     transform: translateY(calc(180vh)) scale(1, -5);
     opacity: 0;
   }
 }
-
 
 .wave-transform-exit {
   opacity: 1;
@@ -398,18 +500,18 @@ animation-delay:0.6s;
 }
 
 .wave-transform-exit-done {
- opacity:0;
+  opacity: 0;
 }
 
 @keyframes wave-transit-exit {
   0% {
     transform: translateY(calc(180vh)) scale(1, -5);
   }
-  99%{
+  99% {
     opacity: 1;
   }
-  100%{
-    transform:translateY(-50) scale(1, 0);
+  100% {
+    transform: translateY(-50) scale(1, 0);
     opacity: 0;
   }
 }
@@ -420,21 +522,20 @@ animation-delay:0.6s;
 }
 
 .wave-transform-reverse-enter-done {
-  opacity:0;
+  opacity: 0;
 }
 @keyframes wave-transit-reverse-enter {
   0% {
-    transform:translateY(-100) scale(1, 1.4);
+    transform: translateY(-100) scale(1, 1.4);
   }
-  99%{
+  99% {
     opacity: 1;
   }
-  100%{
+  100% {
     transform: translateY(calc(120vh)) scale(1, 4);
-    opacity:0;
+    opacity: 0;
   }
 }
-
 
 .wave-transform-reverse-exit {
   opacity: 1;
@@ -442,22 +543,21 @@ animation-delay:0.6s;
 }
 
 .wave-transform-reverse-exit-done {
- opacity:0;
+  opacity: 0;
 }
 
 @keyframes wave-transit-reverse-exit {
   0% {
     transform: translateY(calc(120vh)) scale(1, 4);
   }
-  99%{
+  99% {
     opacity: 1;
   }
-  100%{
-    transform:translateY(-100) scale(1, 0);
-    opacity:0;
+  100% {
+    transform: translateY(-100) scale(1, 0);
+    opacity: 0;
   }
 }
-
 
 /*menu transform*/
 
@@ -467,16 +567,15 @@ animation-delay:0.6s;
 
 @keyframes menu-transit-enter {
   0% {
-    transform:translateY(calc(-100vh));
+    transform: translateY(calc(-100vh));
   }
-  80%{
+  80% {
     transform: translateY(calc(-5vh));
   }
-  100%{
+  100% {
     transform: translateY(0);
   }
 }
-
 
 .menu-transform-exit {
   opacity: 1;
@@ -484,18 +583,18 @@ animation-delay:0.6s;
 }
 
 .menu-transform-exit-done {
- opacity:0;
+  opacity: 0;
 }
 
 @keyframes menu-transit-exit {
   0% {
     transform: translateY(0);
   }
-  20%{
+  20% {
     transform: translateY(calc(-5vh));
   }
-  100%{
-    transform:translateY(calc(-100vh))
+  100% {
+    transform: translateY(calc(-100vh));
   }
 }
 
@@ -503,13 +602,17 @@ animation-delay:0.6s;
   animation: wave-hovering-enter 2s 1;
 }
 
-@keyframes wave-hovering-enter{
-  0%{
-    transform:translateY(calc(-15vh)) scale(1, 0);
+@keyframes wave-hovering-enter {
+  0% {
+    transform: translateY(calc(-15vh)) scale(1, 0);
   }
-  100%{
-    transform:translateY(0) scale(1, -1.4);
+  100% {
+    transform: translateY(0) scale(1, -1.4);
   }
+}
+
+.wave-hovering-enter-done {
+  transform: translateY(0) scale(1, -1.4);
 }
 
 .wave-hovering-exit {
@@ -517,15 +620,15 @@ animation-delay:0.6s;
 }
 
 .wave-hovering-exit-done {
-  opacity:0;
+  opacity: 0;
 }
 
-@keyframes wave-hovering-exit{
-  0%{
-    transform:translateY(0) scale(1,-1.4);
+@keyframes wave-hovering-exit {
+  0% {
+    transform: translateY(0) scale(1, -1.4);
   }
-  100%{
-    transform:translateY(calc(-15vh)) scale(1,0);
+  100% {
+    transform: translateY(calc(-15vh)) scale(1, 0);
   }
 }
 
@@ -534,8 +637,8 @@ animation-delay:0.6s;
   opacity: 0;
 }
 
-@keyframes main-transit{
-  0%{
+@keyframes main-transit {
+  0% {
     opacity: 1;
   }
   100% {
@@ -543,13 +646,13 @@ animation-delay:0.6s;
   }
 }
 
-.main-transit-done{
+.main-transit-done {
   animation: main-transit-done 1s 1;
   opacity: 1;
 }
 
-@keyframes main-transit-done{
-  0%{
+@keyframes main-transit-done {
+  0% {
     opacity: 0;
   }
   100% {
@@ -565,43 +668,41 @@ animation-delay:0.6s;
 }
 
 .wave-transform-after-loading-enter-done {
- opacity:0;
-}
-
-
-.wave-transform-reverse-after-loading-enter {
-  opacity: 1;
-  animation: wave-transit-reverse-exit  1s 1;
-}
-
-.wave-transform-reverse-after-loading-enter-done {
- opacity:0;
-}
-
-.loading-end{
-  opacity:1;
-}
-
-.loading-end-exit{
-  opacity: 1;
-  animation: loading-transparent 1s 1;
-}
-.loading-end-exit-done{
   opacity: 0;
 }
 
-@keyframes loading-transparent{
-  0%{
-    opacity:1;
-  }
-  20%{
-    opacity:0;
-  }
-  100%{
-    opacity:0;
-  }
+.wave-transform-reverse-after-loading-enter {
+  opacity: 1;
+  animation: wave-transit-reverse-exit 1s 1;
 }
 
+.wave-transform-reverse-after-loading-enter-done {
+  opacity: 0;
+}
+
+.loading-end {
+  opacity: 1;
+}
+
+.loading-end-exit {
+  opacity: 1;
+  animation: loading-transparent 1s 1;
+}
+.loading-end-exit-done {
+  opacity: 0;
+}
+
+@keyframes loading-transparent {
+  0% {
+    opacity: 1;
+  }
+  20% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 /*縦書き設定*/
 .vertical-rl-all {
@@ -619,7 +720,7 @@ animation-delay:0.6s;
 /* ハイライト設定 */
 .highlighter-black {
   position: relative;
-  color: #000000;  /* Original text color (Black) */
+  color: #000000; /* Original text color (Black) */
 }
 
 .highlighter-orange span {
@@ -636,38 +737,35 @@ animation-delay:0.6s;
   white-space: nowrap;
   display: inline-block;
   content: attr(data-txt);
-  color: #FFFFFF;  /* Highlighted text color (White) */
+  color: #ffffff; /* Highlighted text color (White) */
   z-index: 2;
-  clip-path: inset(0 100% 0 0);  /* Adjusted clipping */
-  animation: textHighlight 0.5s forwards,drawHighlight 0.5s forwards;
+  clip-path: inset(0 100% 0 0); /* Adjusted clipping */
+  animation: textHighlight 0.5s forwards, drawHighlight 0.5s forwards;
   background-color: #000000; /* Background color */
 }
 
-
-
 @keyframes textHighlight {
   0% {
-      clip-path: inset(0 100% 0 0);
+    clip-path: inset(0 100% 0 0);
   }
   100% {
-      clip-path: inset(0 0 0 0);
+    clip-path: inset(0 0 0 0);
   }
 }
 
 @keyframes drawHighlight {
   0% {
-      width: 0;
+    width: 0;
   }
   100% {
-      width: 100%;
+    width: 100%;
   }
 }
-
 
 .highlighter-orange {
   position: relative;
   overflow: hidden;
-  z-index:2;
+  z-index: 2;
 }
 .highlighter-orange span {
   position: relative;
@@ -675,14 +773,14 @@ animation-delay:0.6s;
 }
 
 .highlighter-orange::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 0;
   z-index: 1;
-  background: #FF9100;
+  background: #ff9100;
   animation: drawHighlight 0.5s forwards;
 }
 
@@ -693,7 +791,7 @@ animation-delay:0.6s;
 }
 
 .overflow-ellipsis::after {
-  content: "...";
+  content: '...';
   position: absolute;
   bottom: 0;
   right: 0;
@@ -721,4 +819,20 @@ animation-delay:0.6s;
   to {
     transform: translateX(100%);
   }
+}
+
+@font-face {
+  font-family: 'Reitam';
+  src: url('../public/font/Reitam Regular.otf') format('opentype'),
+    url('../public/font/Reitam Regular-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'BebasKai';
+  src: url('../public/font/BebasKai.otf') format('opentype'),
+    url('../public/font/BebasKai.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
 }
