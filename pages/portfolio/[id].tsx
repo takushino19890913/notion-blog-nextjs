@@ -97,8 +97,8 @@ export default function Portfolio({ item }: PortfolioProps) {
               style={{ objectFit: 'contain' }}
             />
           </div>
-          <div className="w-full flex flex-row justify-around mt-12 md:mt-20">
-            <div className="w-1/3">
+          <div className="w-full flex flex-col md:flex-row md:justify-around mt-12 md:mt-20">
+            <div className="w-3/4 md:w-1/3 mx-auto">
               <Image
                 src={item.mobileScreenshots[0]}
                 alt={item.clientName}
@@ -107,7 +107,7 @@ export default function Portfolio({ item }: PortfolioProps) {
                 style={{ objectFit: 'contain' }}
               />
             </div>
-            <div className="w-1/3">
+            <div className="w-3/4 md:w-1/3 mx-auto">
               <Image
                 src={item.mobileScreenshots[1]}
                 alt={item.clientName}

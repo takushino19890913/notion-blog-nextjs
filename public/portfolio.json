@@ -21,7 +21,13 @@
   "jp-class": {
     "title": "しずか先生のこども日本語教室",
     "title_en": "Shizuka's Japanese Class",
-    "technologies": ["NextJS", "TypeScript", "TailwindCSS", "Three.js"],
+    "technologies": [
+      "NextJS",
+      "TypeScript",
+      "TailwindCSS",
+      "Firebase",
+      "Contentful"
+    ],
     "pcScreenshots": [
       "/images/jp-class/portfolio/pc_top.png",
       "/images/jp-class/portfolio/pc_all.png"
@@ -32,10 +38,10 @@
     ],
     "themeColor": "#613091",
     "url": "https://japanesevanclass.ca",
-    "role": "N/A",
-    "clientName": "N/A",
-    "description": "My portfolio website built with NextJS, TypeScript, TailwindCSS, and Three.js. <br> The website is designed to showcase my work and provide a unique experience for visitors.",
-    "ja_description": "NextJS、TypeScript、TailwindCSS、Three.jsを使用して構築されたポートフォリオウェブサイト。BlogはNotionと連携をしています。<br> このウェブサイトは私の作品を紹介したり、見てくださった方と交流することを目的としています。",
+    "role": "Developer",
+    "clientName": "しずか先生のこども日本語教室",
+    "description": "A website for a Japanese language school in Vancouver built with Next.js, TypeScript, TailwindCSS, and Firebase. The website features a login system using Firebase Authentication and allows students to watch class videos and photos",
+    "ja_description": "バンクーバーにあるこども日本語教室のウェブサイトをNext.js, TypeScript, TailwindCSS, Firebaseを使用して構築しました。ログイン機能をFirebase Authenticationで実装し、個々の生徒ようにカスタマイズされたクラス動画や写真を共有しています。",
     "logoImage": "/images/jp-class/portfolio/jpClass_logo.png"
   },
   "terakoya": {
@@ -52,10 +58,10 @@
     ],
     "themeColor": "#00A45D",
     "url": "https://terakoya-vancouver.ca",
-    "role": "N/A",
-    "clientName": "N/A",
-    "description": "My portfolio website built with NextJS, TypeScript, TailwindCSS, and Three.js. <br> The website is designed to showcase my work and provide a unique experience for visitors.",
-    "ja_description": "NextJS、TypeScript、TailwindCSS、Three.jsを使用して構築されたポートフォリオウェブサイト。BlogはNotionと連携をしています。<br> このウェブサイトは私の作品を紹介したり、見てくださった方と交流することを目的としています。",
+    "role": "Developer",
+    "clientName": "Terakoya the Japanese Preschool",
+    "description": "A website for a Japanese preschool in Vancouver built with Next.js, TypeScript, TailwindCSS, and Contentful. The website is designed to be updated with staff blogs and event information using Contentful's API.",
+    "ja_description": "バンクーバーのプレスクールのウェブサイトを、Next.js, TypeScript, TailwindCSS, Contentfulを使用して構築しました。ContentfulのAPIを用いて、スタッフのブログやイベント情報を更新できるようにしています。",
     "logoImage": "/images/terakoya/portfolio/terakoya_logo.png"
   }
 }

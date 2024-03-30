@@ -195,7 +195,7 @@ const Layout: React.FC<Props> = ({ children }) => {
                   delayMultiply={0.05}
                   menuOpen={menuOpen}
                 >
-                  <div className="font-reitam relative h-[80vh] tracking-[0.3em] xl:leading-loose xl:tracking-[0.5em] pb-[10vh] flex flex-col justify-center items-center">
+                  <div className="font-reitam relative h-[60vh] tracking-[0.2em] xl:leading-normal xl:tracking-[0.3em] pb-[5vh] flex flex-col justify-center items-center">
                     <h1 className="mt-5 text-4xl xl:text-5xl font-bold">
                       TAKUYA SHINOZAKI
                     </h1>
