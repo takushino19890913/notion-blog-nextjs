@@ -20,7 +20,6 @@ export default function Blog({
   year_month_list,
   tag_list,
 }) {
-  console.log('posts: ', posts)
   if (posts && currentMonth) {
     return (
       <div>
@@ -136,7 +135,6 @@ export const getStaticPaths = async () => {
     params: {
       yyyymm:
         date.getFullYear().toString() +
-        '/' +
         ('00' + (date.getMonth() + 1).toString()).slice(-2),
     },
   }))

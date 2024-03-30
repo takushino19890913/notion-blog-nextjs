@@ -49,7 +49,7 @@ export default function Blog({
               #{currentTag}
             </h2>
             <ol className="mt-5">
-              {posts.map((post) => {
+              {posts?.map((post) => {
                 const date = new Date(post.last_edited_time).toLocaleString(
                   'en-US',
                   {
@@ -61,7 +61,7 @@ export default function Blog({
                 return (
                   <li key={post.id} className="hover-yellow my-10">
                     <div className="flex flex-row text-sm">
-                      {post.properties.Tag.multi_select.map((tag, index) => {
+                      {post.properties.Tag?.multi_select?.map((tag, index) => {
                         if (
                           index <
                           post.properties.Tag.multi_select.length - 1

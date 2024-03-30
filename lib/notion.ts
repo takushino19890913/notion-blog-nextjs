@@ -12,13 +12,7 @@ export const getDatabase = async (databaseId) => {
 }
 
 export const getDatabaseForMonth = async (databaseId, year_month) => {
-  console.log(`${year_month.slice(0, 4)}-${year_month.slice(4)}-01`)
-  const on_or_after: string =
-    year_month.slice(4) == '12'
-      ? `${parseInt(year_month.slice(0, 4)) + 1}-${year_month.slice(4)}-01`
-      : `${year_month.slice(0, 4)}-${
-          '0' + (parseInt(year_month.slice(4)) + 1).toString().slice(-2)
-        }-01`
+  console.log(`${year_month.slice(0, 4)}-${year_month.slice(4)}-01`) //2023-08-01
   const response = await notion.databases.query({
     database_id: databaseId,
     sorts: [
@@ -44,7 +38,6 @@ export const getDatabaseForMonth = async (databaseId, year_month) => {
       ],
     },
   })
-  console.log(response)
   return response.results
 }
 
