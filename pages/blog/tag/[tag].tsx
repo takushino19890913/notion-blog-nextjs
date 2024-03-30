@@ -19,10 +19,6 @@ export default function Blog({
 }) {
   return (
     <div>
-      <Head>
-        <title>Notion Next.js blog</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <Layout>
         <main className="mt-5 md:mt-20 mx-auto flex flex-col md:flex-row">
           <div className="mx-auto w-5/6 md:ml-40 md:w-1/6">

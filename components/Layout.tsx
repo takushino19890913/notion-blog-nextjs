@@ -103,7 +103,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <div className="min-h-screen bg-[#FCF2DC] overflow-hidden overflow-y-auto">
       <Head>
-        <title>Thought in the rough</title>
+        <title>Thoughts in the rough</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <nav className="fixed bg-[#FCF2DC] pl-5 md:pl-20 py-3 h-[20vh] text-[#002066] text-xl font-bold w-full z-50 opacity-100">
