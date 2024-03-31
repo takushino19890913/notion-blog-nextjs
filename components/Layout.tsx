@@ -363,7 +363,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         isTransitioning={isTransitioning}
       >
         <div
-          className="mx-auto mt-[20vh] snap-y overflow-y-auto"
+          className="mx-auto mt-[15vh] md:mt-[20vh] snap-y overflow-y-auto"
           id="snapContainer"
           ref={snapContainerRef}
           style={{ maxHeight: (height * 80) / 100 }}
@@ -375,7 +375,7 @@ const Layout: React.FC<Props> = ({ children }) => {
           >
             {children}
           </main>
-          <footer className="relative w-full snap-start mt-[20vh] mx-auto pt-[5vh] z-20">
+          <footer className="relative w-full snap-start mt-[15vh] md:mt-[20vh] mx-auto pt-[5vh] z-20">
             <div
               className="hover:opacity-80 cursor-pointer w-full h-[10vh] bg-[#FF9100] flex justify-center items-center"
               onClick={() => {
