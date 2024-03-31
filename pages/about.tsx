@@ -19,7 +19,7 @@ export default function About() {
               Developer
             </h2>
             <h1 className="text-3xl md:text-6xl xl:text-8xl font-bold">
-              Takuya Shinozaki
+              Motokusa
             </h1>
           </div>
           <div className="my-3 md:my-0 border-t-2 md:border-t-none md:border-l-2 border-[#9C9C9B]"></div>

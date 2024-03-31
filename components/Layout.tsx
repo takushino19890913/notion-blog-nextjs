@@ -106,7 +106,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <title>Thoughts in the rough</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <nav className="fixed bg-[#FCF2DC] pl-5 md:pl-20 py-3 h-[20vh] text-[#002066] text-xl font-bold w-full z-50 opacity-100">
+      <nav className="fixed bg-[#FCF2DC] pl-5 md:pl-20 py-3 h-[15vh] md:h-[20vh] text-[#002066] text-xl font-bold w-full z-50 opacity-100">
         <div
           className="flex items-center justify-between w-11/12 h-full"
           style={{ position: 'relative', zIndex: 52 }}

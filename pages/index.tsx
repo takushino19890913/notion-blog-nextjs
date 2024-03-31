@@ -86,7 +86,7 @@ export default function Home() {
                 className="text-8xl xl:text-9xl font-black"
               />
               <TypewriterText
-                text="I am Takuya!! I like making things!"
+                text="I am Motokusa!! I like making things!"
                 speed={100}
                 delay={3000}
                 className="text-lg md:text-2xl mt-5 italic text-center"
@@ -145,7 +145,7 @@ export default function Home() {
               </div>
               <div className="absolute mx-auto left-[2vh] md:left-auto md:right-[10vh] top-[18vh] md:top-[12vh] w-11/12 md:w-1/3 max-h-[80vh] overflow-hidden text-ellipsis whitespace-nowrap">
                 <TextMultilineOverflow className="min-h-[50vh] max-h-[50vh] text-lg leading-loose">
-                  こんにちは、篠崎拓也と申します。
+                  こんにちは、Motokusaと申します。
                   <br />
                   私は主にWebアプリケーション開発を行っています。Next.js、React.js、TypeScript、Tailwind.cssを用いたフロントエンド開発を得意としており、ChatGPTなどの生成AIを活用したアプリケーション開発にも取り組んでいます。
                   <br />
@@ -157,7 +157,7 @@ export default function Home() {
                   <br />
                   <br />
                   このポートフォリオサイトでは、私の開発スキルや実績をご覧いただけます。ご興味がありましたら、ぜひお気軽にお問い合わせください。お仕事のご相談を心よりお待ちしております。
-                  <br /> Takuya Shinozaki
+                  <br /> Motokusa
                 </TextMultilineOverflow>
               </div>
               <HeaderCard
