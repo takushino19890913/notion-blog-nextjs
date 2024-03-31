@@ -11,7 +11,7 @@
       "/images/thoughts_in_the_rough/portfolio/TIR_mobile_2.png"
     ],
     "themeColor": "#002066",
-    "url": "https://example.com",
+    "url": "https://thoughts-in-the-rough.vercel.app/",
     "role": "N/A",
     "clientName": "N/A",
     "description": "My portfolio website built with NextJS, TypeScript, TailwindCSS, and Three.js. <br> The website is designed to showcase my work and provide a unique experience for visitors.",
@@ -41,7 +41,7 @@
     "role": "Developer",
     "clientName": "しずか先生のこども日本語教室",
     "description": "A website for a Japanese language school in Vancouver built with Next.js, TypeScript, TailwindCSS, and Firebase. The website features a login system using Firebase Authentication and allows students to watch class videos and photos",
-    "ja_description": "バンクーバーにあるこども日本語教室のウェブサイトをNext.js, TypeScript, TailwindCSS, Firebaseを使用して構築しました。ログイン機能をFirebase Authenticationで実装し、個々の生徒ようにカスタマイズされたクラス動画や写真を共有しています。",
+    "ja_description": "バンクーバーにあるこども日本語教室のウェブサイトをNext.js, TypeScript, TailwindCSS, Firebaseを使用して構築しました。ログイン機能をFirebase Authenticationで実装し、個々の生徒用にカスタマイズされたクラス動画や写真を共有しています。",
     "logoImage": "/images/jp-class/portfolio/jpClass_logo.png"
   },
   "terakoya": {
