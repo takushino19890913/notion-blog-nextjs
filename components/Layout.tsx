@@ -366,7 +366,9 @@ const Layout: React.FC<Props> = ({ children }) => {
           className="mx-auto mt-[15vh] md:mt-[20vh] snap-y overflow-y-auto"
           id="snapContainer"
           ref={snapContainerRef}
-          style={{ maxHeight: (height * 80) / 100 }}
+          style={{
+            maxHeight: width > 640 ? (height * 80) / 100 : (height * 85) / 100,
+          }}
         >
           <main
             className={
