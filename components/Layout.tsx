@@ -197,7 +197,7 @@ const Layout: React.FC<Props> = ({ children }) => {
                 >
                   <div className="font-reitam relative h-[60vh] tracking-[0.2em] xl:leading-normal xl:tracking-[0.3em] pb-[5vh] flex flex-col justify-center items-center">
                     <h1 className="mt-5 text-4xl xl:text-5xl font-bold">
-                      TAKUYA SHINOZAKI
+                      MOTOKUSA
                     </h1>
                     <div className="flex-row mt-10">
                       <a
